@@ -370,6 +370,8 @@
             left: 0;
             z-index: 2;
             transition: transform 0.3s ease;
+            display: block;
+            aspect-ratio: 16/9;
         }
 
         .project-card:hover .project-image img {
@@ -683,8 +685,9 @@
             }
             
             .projects-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* 👈 1 seule colonne */
                 gap: 1.5rem;
+                padding: 0 1rem;
             }
             
             .contact-links {
@@ -719,12 +722,13 @@
                 width: 100%;
                 text-align: center;
             }
+            
         }
 
         /* Animation d'apparition */
         .project-card {
             opacity: 0;
-            transform: translateY(30px);
+            /*transform: translateY(30px);*/
             animation: fadeInUp 0.6s ease forwards;
         }
 
@@ -764,10 +768,11 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="static/CV/CV.pdf" class="nav-link cv-button" download>CV</a></li>
-            </ul>
+                <li><a href="#" class="nav-link cv-button" download>CV</a></li>
+            </ul><!--static/CV/CV.pdf-->
         </div>
     </nav>
+    
 
     <div class="container">
         <!-- About Me Section -->
@@ -810,7 +815,7 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">🚀</div>
-                    <img src="static/image/Capture d’écran du 2025-09-23 11-11-25.png" />
+                    <img src="static/image/Capture-d’écran-du-2025-09-23-11-11-25.webp" />
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Groupie-tracker</h3>
@@ -839,7 +844,7 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">📱</div>
-                    <img src="static/image/1graph.png" />
+                    <img src="static/image/1graph.webp" />
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Lem-in</Lem-in></h3>
@@ -867,7 +872,7 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">🎯</div>
-                    <img src="static/image/Net-Cat.png" />
+                    <img src="static/image/Net-Cat.webp" />
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Net-Cat</h3>
@@ -894,10 +899,10 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">🤖</div>
-                    <img src="static/image/push-swap.jpg">
+                    <img src="static/image/push-swap.webp">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">push-swap</h3>
+                    <h3 class="project-title">Push-swap</h3>
                     <p class="project-description">
                         Push-Swap est un projet d’algorithmie en Go (Golang) visant à trier une pile d’entiers à l’aide d’un ensemble limité d’instructions 
                         et de deux piles (a et b).
@@ -921,10 +926,10 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">🎯</div>
-                    <img src="static/image/ATM.png" />
+                    <img src="static/image/ATM.webp" />
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">atm-system</h3>
+                    <h3 class="project-title">Atm-system</h3>
                     <p class="project-description">
                         This project demonstrates your ability to understand and apply programming logic and adapt to a new programming language — C in this case.
                         You will be working on an ATM Management System and extending it with several new features while maintaining and improving existing functionality.
@@ -973,13 +978,12 @@
             </div>
         </div>
 
-        <div class="section-divider">
+         <!--   <<div class="section-divider">
             <h2 class="section-title">Projets Expérimentaux</h2>
             <p class="section-description">
                 Explorations techniques et prototypes innovants développés par passion.
             </p>
         </div>
-
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
@@ -1026,14 +1030,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <footer id="contact">
             <div class="contact-info">
                 <h3>Travaillons ensemble</h3>
                 <p>Intéressé par une collaboration ? N'hésitez pas à me contacter pour discuter de vos projets.</p>
                 <div class="contact-links">
-                    <a href="nathan240304@gmail.com" class="contact-link">Email</a>
+                    <a href="mailto:nathan240304@gmail.com" class="contact-link">Email</a>
                     <a href="https://www.linkedin.com/in/naathanaallain/" class="contact-link">LinkedIn</a>
                     <a href="https://github.com/nathuc69" class="contact-link">GitHub</a>
                 </div>
