@@ -292,15 +292,10 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            justify-content: center;  /* 👈 centre les lignes incomplètes */
-            justify-items: center;    /* 👈 centre les éléments dans chaque cellule */
-            align-items: stretch;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            }
+            margin-bottom: 4rem;
+        }
 
         .project-card {
             background: rgba(25, 25, 35, 0.8);
@@ -335,7 +330,7 @@
             height: 240px;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
@@ -364,14 +359,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top;
+            object-position: center;
             position: absolute;
             top: 0;
             left: 0;
             z-index: 2;
             transition: transform 0.3s ease;
-            display: block;
-            aspect-ratio: 16/9;
         }
 
         .project-card:hover .project-image img {
@@ -667,14 +660,6 @@
         }
 
         @media (max-width: 768px) {
-            body.light-mode .nav-links {
-            background-color: #f8f9fa; 
-            color: #222;               
-            border-bottom: 1px solid #ddd; 
-            }
-        }
-
-        @media (max-width: 768px) {
             .container {
                 padding: 1rem;
                 padding-top: 80px;
@@ -685,9 +670,8 @@
             }
             
             .projects-grid {
-                grid-template-columns: 1fr; /* 👈 1 seule colonne */
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
-                padding: 0 1rem;
             }
             
             .contact-links {
@@ -722,13 +706,12 @@
                 width: 100%;
                 text-align: center;
             }
-            
         }
 
         /* Animation d'apparition */
         .project-card {
             opacity: 0;
-            /*transform: translateY(30px);*/
+            transform: translateY(30px);
             animation: fadeInUp 0.6s ease forwards;
         }
 
@@ -758,8 +741,8 @@
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about" class="nav-link">A propos</a></li>
-                <li><a href="#work" class="nav-link">Projets</a></li>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <div class="theme-toggle">
@@ -768,33 +751,36 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#" class="nav-link cv-button" download>CV</a></li>
-            </ul><!--static/CV/CV.pdf-->
+                <li><a href="votre-cv.pdf" class="nav-link cv-button" download>CV</a></li>
+            </ul>
         </div>
     </nav>
-    
 
     <div class="container">
         <!-- About Me Section -->
         <section id="about" class="about-section">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="static/image/PDP.jpg" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    👨‍💻
                 </div>
                 <div class="about-text">
                     <h2>À propos de moi</h2>
                     <p>
-                        Je suis étudiant en développement full stack, passionné par la création d’applications modernes et performantes.
-                        Curieux et motivé, j’aime apprendre de nouvelles technologies et relever des défis techniques pour concevoir des solutions utiles et bien pensées.
+                        Développeur full-stack passionné avec une expertise en création d'applications web modernes 
+                        et performantes. J'aime transformer des idées complexes en solutions élégantes et intuitives.
                     </p>
                     <p>
-                        Actuellement, je cherche à développer mes compétences professionnelles à travers des projets concrets et une alternance qui me permettront de contribuer à des applications innovantes et évolutives.
+                        Fort de plusieurs années d'expérience, je maîtrise l'ensemble du cycle de développement, 
+                        de la conception à la mise en production. Mon approche combine créativité technique et 
+                        attention aux détails pour créer des expériences utilisateur exceptionnelles.
                     </p>
                     <div class="skills-list">
                         <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Go</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">MongoDB</span>
                         <span class="skill-tag">Docker</span>
                         <span class="skill-tag">Git</span>
                     </div>
@@ -802,6 +788,7 @@
             </div>
         </section>
 
+        <!-- Work Section -->
         <header id="work">
             <h1>Mes Projets de Développement</h1>
             <p class="subtitle">Portfolio créatif et technique</p>
@@ -815,26 +802,24 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">🚀</div>
-                    <img src="static/image/Capture-d’écran-du-2025-09-23-11-11-25.webp" />
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Groupie-tracker</h3>
+                    <h3 class="project-title">Application E-commerce</h3>
                     <p class="project-description">
-                        Groupie Tracker est une application web écrite en Go qui utilise une API fournie pour afficher des informations sur les groupes et les artistes.
-                         Le projet se concentre sur la manipulation et la visualisation des données, ainsi que sur les interactions client-serveur.
-
+                        Plateforme de commerce électronique complète avec gestion des stocks, 
+                        paiements sécurisés et tableau de bord administrateur avancé.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Go</span>
-                        <span class="tech-tag">RESTful APIs</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Parsing</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Stripe</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link link-primary">
                             <span>Voir le projet</span>
                         </a>
-                        <a href="https://github.com/nathuc69/groupie-tracker" class="project-link link-secondary">
+                        <a href="#" class="project-link link-secondary">
                             <span>Code source</span>
                         </a>
                     </div>
@@ -844,25 +829,24 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">📱</div>
-                    <img src="static/image/1graph.webp" />
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Lem-in</Lem-in></h3>
+                    <h3 class="project-title">Application Mobile Social</h3>
                     <p class="project-description">
-                        Dans Lem-in, trouvez tous les chemins entre la salle de départ et d’arrivée et faites-y passer les fourmis le plus efficacement possible.
-                        Seules les salles intermédiaires ne peuvent contenir qu’une fourmi à la fois.
+                        Réseau social mobile avec fonctionnalités de chat en temps réel, 
+                        partage de médias et géolocalisation.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Go</span>
-                        <span class="tech-tag">Algo BFS</span>
-                        <span class="tech-tag">Algo EdmondKarp</span>
-                        <span class="tech-tag">Parsing</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Socket.io</span>
+                        <span class="tech-tag">Redux</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link link-primary">
                             <span>Voir le projet</span>
                         </a>
-                        <a href="https://github.com/nathuc69/Lem-in" class="project-link link-secondary">
+                        <a href="#" class="project-link link-secondary">
                             <span>Code source</span>
                         </a>
                     </div>
@@ -872,24 +856,24 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">🎯</div>
-                    <img src="static/image/Net-Cat.webp" />
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Net-Cat</h3>
+                    <h3 class="project-title">Dashboard Analytics</h3>
                     <p class="project-description">
-                        Ce projet recrée le comportement de NetCat (nc) en Go pour établir un chat de groupe TCP.
-                        Le serveur écoute sur un port spécifié et gère jusqu’à 10 clients.
+                        Tableau de bord interactif pour l'analyse de données avec 
+                        visualisations avancées et rapports personnalisables.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Go</span>
-                        <span class="tech-tag">TCP</span>
-                        <span class="tech-tag">Mutexes</span>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PostgreSQL</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link link-primary">
                             <span>Voir le projet</span>
                         </a>
-                        <a href="https://github.com/NL-Des/net-cat" class="project-link link-secondary">
+                        <a href="#" class="project-link link-secondary">
                             <span>Code source</span>
                         </a>
                     </div>
@@ -899,51 +883,24 @@
             <div class="project-card">
                 <div class="project-image">
                     <div class="project-icon">🤖</div>
-                    <img src="static/image/push-swap.webp">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Push-swap</h3>
+                    <h3 class="project-title">Bot Intelligence Artificielle</h3>
                     <p class="project-description">
-                        Push-Swap est un projet d’algorithmie en Go (Golang) visant à trier une pile d’entiers à l’aide d’un ensemble limité d’instructions 
-                        et de deux piles (a et b).
-                        Le but est de générer la plus courte séquence d’opérations possible pour effectuer le tri.
+                        Assistant conversationnel intelligent utilisant l'apprentissage automatique 
+                        pour répondre aux questions des utilisateurs.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Go</span>
-                        <span class="tech-tag">Algo</span>
-                        <span class="tech-tag">Stacks</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">FastAPI</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link link-primary">
                             <span>Voir le projet</span>
                         </a>
-                        <a href="https://github.com/nathuc69/Push-swap" class="project-link link-secondary">
-                            <span>Code source</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="project-icon">🎯</div>
-                    <img src="static/image/ATM.webp" />
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Atm-system</h3>
-                    <p class="project-description">
-                        This project demonstrates your ability to understand and apply programming logic and adapt to a new programming language — C in this case.
-                        You will be working on an ATM Management System and extending it with several new features while maintaining and improving existing functionality.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">C</span>
-                        <span class="tech-tag">Login / Register </span>
-                        <span class="tech-tag">File System</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link link-primary">
-                            <span>Voir le projet</span>
-                        </a>
-                        <a href="https://github.com/NL-Des/net-cat" class="project-link link-secondary">
+                        <a href="#" class="project-link link-secondary">
                             <span>Code source</span>
                         </a>
                     </div>
@@ -976,14 +933,42 @@
                     </div>
                 </div>
             </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-icon">📊</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Système de Gestion CRM</h3>
+                    <p class="project-description">
+                        Solution complète de gestion de la relation client avec 
+                        automatisation des tâches et analyse prédictive.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link link-primary">
+                            <span>Démonstration</span>
+                        </a>
+                        <a href="#" class="project-link link-secondary">
+                            <span>Documentation</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-         <!--   <<div class="section-divider">
+        <div class="section-divider">
             <h2 class="section-title">Projets Expérimentaux</h2>
             <p class="section-description">
                 Explorations techniques et prototypes innovants développés par passion.
             </p>
         </div>
+
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
@@ -1030,16 +1015,16 @@
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
 
         <footer id="contact">
             <div class="contact-info">
                 <h3>Travaillons ensemble</h3>
                 <p>Intéressé par une collaboration ? N'hésitez pas à me contacter pour discuter de vos projets.</p>
                 <div class="contact-links">
-                    <a href="mailto:nathan240304@gmail.com" class="contact-link">Email</a>
-                    <a href="https://www.linkedin.com/in/naathanaallain/" class="contact-link">LinkedIn</a>
-                    <a href="https://github.com/nathuc69" class="contact-link">GitHub</a>
+                    <a href="mailto:contact@example.com" class="contact-link">Email</a>
+                    <a href="#" class="contact-link">LinkedIn</a>
+                    <a href="#" class="contact-link">GitHub</a>
                 </div>
             </div>
             <p>&copy; 2024 Portfolio Développeur. Tous droits réservés.</p>
@@ -1141,19 +1126,6 @@
         // Observer les cartes de projet
         document.querySelectorAll('.project-card').forEach(card => {
             observer.observe(card);
-        });
-
-        // Effet de parallax léger sur les images de projet
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.3;
-            
-            document.querySelectorAll('.project-image').forEach((image, index) => {
-                const rect = image.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    image.style.transform = `translateY(${rate * 0.1}px)`;
-                }
-            });
         });
 
         // Gestion des clics sur les cartes
