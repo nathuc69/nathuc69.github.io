@@ -82,25 +82,85 @@ function initNavbar() {
 function initModal() {
     const modal = document.getElementById('projectModal');
     const closeBtn = document.querySelector('.modal-close');
+    const modalTitle = document.querySelector('.modal-title');
+    const modalDescription = document.querySelector('.modal-description');
+    const modalImage = document.querySelector('.modal-image');
+    const modalFeatures = document.querySelector('.modal-features');
+    const modalChallenges = document.querySelector('.modal-challenges');
+    const modalTech = document.querySelector('.modal-tech');
+    const modalDemo = document.querySelector('.modal-demo');
+    const modalSource = document.querySelector('.modal-source');
+
+    function parseList(value) {
+        if (!value) return [];
+        return value
+            .split('|')
+            .map(item => item.trim())
+            .filter(Boolean);
+    }
+
+    function renderList(container, items, fallbackText) {
+        if (!container) return;
+        if (!items.length) {
+            container.innerHTML = `<li>${fallbackText}</li>`;
+            return;
+        }
+        container.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+    }
+
+    function setModalLink(linkElement, href, text) {
+        if (!linkElement) return;
+        linkElement.textContent = text;
+        if (!href || href === '#') {
+            linkElement.style.display = 'none';
+            linkElement.removeAttribute('href');
+            return;
+        }
+        linkElement.style.display = 'inline-flex';
+        linkElement.setAttribute('href', href);
+    }
 
     // Ouvrir modal au clic sur la card
     document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('click', (e) => {
             if (!e.target.closest('.project-link')) {
                 const title = card.querySelector('.project-title').textContent;
-                const description = card.querySelector('.project-description').textContent;
+                const description = card.dataset.detail || card.querySelector('.project-description').textContent;
                 const image = card.querySelector('.project-image img')?.src || '';
+                const featureList = parseList(card.dataset.features);
+                const challengeList = parseList(card.dataset.challenges);
+                const techTags = Array.from(card.querySelectorAll('.tech-tag')).map(tag => tag.textContent.trim());
+                const primaryLink = card.querySelector('.link-primary');
+                const secondaryLink = card.querySelector('.link-secondary');
                 
-                document.querySelector('.modal-title').textContent = title;
-                document.querySelector('.modal-description').textContent = description;
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
                 
-                const modalImage = document.querySelector('.modal-image');
                 if (image) {
                     modalImage.src = image;
                     modalImage.style.display = 'block';
                 } else {
                     modalImage.style.display = 'none';
                 }
+
+                renderList(modalFeatures, featureList, 'Fonctionnalités détaillées bientôt disponibles.');
+                renderList(modalChallenges, challengeList, 'Détails techniques à venir.');
+
+                modalTech.innerHTML = techTags
+                    .map(tag => `<span class="modal-tech-tag">${tag}</span>`)
+                    .join('');
+
+                setModalLink(
+                    modalDemo,
+                    primaryLink?.getAttribute('href') || '',
+                    primaryLink?.textContent.trim() || 'Voir le projet'
+                );
+
+                setModalLink(
+                    modalSource,
+                    secondaryLink?.getAttribute('href') || '',
+                    secondaryLink?.textContent.trim() || 'Code source'
+                );
                 
                 modal.classList.add('active');
             }

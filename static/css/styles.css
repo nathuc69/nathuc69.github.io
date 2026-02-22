@@ -373,7 +373,7 @@ body.light-mode .project-card:hover {
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     position: absolute;
     top: 0;
@@ -758,6 +758,105 @@ body.light-mode .modal-description {
     color: rgba(0, 0, 0, 0.6);
 }
 
+.modal-sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-section {
+    background: rgba(102, 126, 234, 0.08);
+    border: 1px solid rgba(102, 126, 234, 0.18);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+body.light-mode .modal-section {
+    background: rgba(102, 126, 234, 0.06);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.modal-section h4 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+body.light-mode .modal-section h4 {
+    color: #1a1a1a;
+}
+
+.modal-list {
+    list-style: disc;
+    padding-left: 1rem;
+    margin: 0;
+}
+
+.modal-list li {
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+body.light-mode .modal-list li {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.modal-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-tech-tag {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.modal-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.modal-link-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.modal-link-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.modal-link-secondary {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.modal-link-secondary:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -847,6 +946,18 @@ body.light-mode .modal-description {
     .modal-content {
         margin: 1rem;
         max-width: calc(100% - 2rem);
+    }
+
+    .modal-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-links {
+        flex-direction: column;
+    }
+
+    .modal-link {
+        width: 100%;
     }
     
     .modal-close {

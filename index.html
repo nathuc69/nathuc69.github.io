@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="static/CV/CV.pdf" class="nav-link cv-button" download>CV</a></li>
+                <li><a href="static/CV/CV2 (1).pdf" class="nav-link cv-button" download>CV</a></li>
             </ul>
         </div>
     </nav>
@@ -39,6 +39,21 @@
             <img src="" alt="Projet" class="modal-image">
             <h2 class="modal-title"></h2>
             <p class="modal-description"></p>
+            <div class="modal-sections">
+                <div class="modal-section">
+                    <h4>Fonctionnalités clés</h4>
+                    <ul class="modal-list modal-features"></ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Défis techniques</h4>
+                    <ul class="modal-list modal-challenges"></ul>
+                </div>
+            </div>
+            <div class="modal-tech"></div>
+            <div class="modal-links">
+                <a href="#" class="modal-link modal-link-primary modal-demo" target="_blank" rel="noopener noreferrer">Voir le projet</a>
+                <a href="#" class="modal-link modal-link-secondary modal-source" target="_blank" rel="noopener noreferrer">Code source</a>
+            </div>
         </div>
     </div>
 
@@ -81,7 +96,7 @@
         </header>
 
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" data-detail="Application Go qui centralise les données d'artistes, groupes, lieux et dates pour créer une exploration fluide des relations entre chaque entité." data-features="Recherche d'artistes et filtrage|Visualisation des dates et localisations|Navigation entre données liées" data-challenges="Synchronisation de plusieurs endpoints API|Structuration des données côté serveur|Rendu rapide des pages dynamiques">
                 <div class="project-image">
                     <div class="project-icon">🚀</div>
                     <img src="static/image/Groupie-tracker.webp" />
@@ -109,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-detail="Résolution de graphes orientée performance pour faire transiter des fourmis du point de départ à la sortie en optimisant les chemins utilisés." data-features="Calcul des chemins possibles|Répartition optimale des fourmis|Simulation pas à pas des déplacements" data-challenges="Implémentation BFS/Edmonds-Karp|Gestion des collisions dans les salles|Optimisation du temps total d'exécution">
                 <div class="project-image">
                     <div class="project-icon">📱</div>
                     <img src="static/image/1graph.webp" />
@@ -137,7 +152,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-detail="Serveur de chat TCP multi-utilisateur inspiré de netcat, conçu pour gérer les connexions concurrentes et diffuser les messages en temps réel." data-features="Connexion de plusieurs clients|Broadcast de messages instantané|Gestion des arrivées et départs" data-challenges="Synchronisation avec mutex|Limitation du nombre de clients|Fiabilité des échanges réseau">
                 <div class="project-image">
                     <div class="project-icon">🎯</div>
                     <img src="static/image/Net-Cat.webp" />
@@ -164,7 +179,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-detail="Projet d'algorithmie centré sur le tri de piles avec un jeu d'instructions strict, en recherchant le minimum d'opérations." data-features="Tri optimisé pour petits et grands jeux|Visualisation des opérations de pile|Stratégies adaptées selon la taille" data-challenges="Réduction du nombre d'instructions|Conception d'algorithmes hybrides|Gestion précise des stacks A/B">
                 <div class="project-image">
                     <div class="project-icon">🤖</div>
                     <img src="static/image/push-swap.webp">
@@ -190,7 +205,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-detail="Système ATM en C avec gestion complète des comptes et des transactions, orienté logique métier et persistance locale des données." data-features="Authentification et création de compte|Consultation dépôt retrait|Historique des opérations" data-challenges="Sécurisation du flux utilisateur|Lecture/écriture robuste des fichiers|Validation des montants et des états de compte">
                 <div class="project-image">
                     <div class="project-icon">💳</div>
                     <img src="static/image/ATM.webp" />
@@ -216,7 +231,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-detail="Bomberman front-end en JavaScript pur sans canvas, couplé à une API Go légère pour enregistrer et afficher les scores." data-features="Gameplay en temps réel dans le DOM|Génération aléatoire des maps|Gestion des scores via backend Go" data-challenges="Performance sans canvas|Détection des collisions et explosions|Synchronisation front-back des résultats">
                 <div class="project-image">
                     <div class="project-icon">🎮</div>
                     <img src="static/image/Make-your-game.png" />
@@ -233,7 +248,7 @@
                         <span class="tech-tag">score-handling</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link link-primary">
+                        <a href="https://make-your-game-nine.vercel.app/" class="project-link link-primary">
                             <span>Jouer maintenant</span>
                         </a>
                         <a href="https://github.com/nathuc69/Make-your-game" class="project-link link-secondary">
